@@ -218,6 +218,21 @@ async def send_signal(bot: Bot, signal: dict):
         icon = "✅" if ok else "❌"
         cond_lines += f"  {icon} {name}\n"
 
+    # Tavsiye üret
+    score = signal["score"]
+    rsi   = signal["rsi"]
+    vol   = signal["volume_ratio"]
+    if score >= 85 and rsi < 30 and vol >= 3:
+        tavsiye = "🟢 KESİNLİKLE AL — Çok güçlü sinyal. RSI dip, hacim patlıyor."
+    elif score >= 75 and rsi < 35:
+        tavsiye = "🟢 AL — Güçlü sinyal. Risk/ödül oranı iyi."
+    elif score >= 65 and signal["passed"] == signal["total"]:
+        tavsiye = "🟡 DİKKATLİ AL — Zayıf ama geçerli sinyal. Küçük miktarla gir."
+    elif rsi > 60:
+        tavsiye = "🔴 ALMA — RSI yüksek, geç kalınmış olabilir. Dip bekle."
+    else:
+        tavsiye = "🟡 BEKLE — Sinyal tam olgunlaşmadı. Bir sonraki taramayı bekle."
+
     text = (
         f"🚨 *AL SİNYALİ — {coin}*\n\n"
         f"💰 Fiyat: `{fmt_price(price)}`\n"
@@ -226,6 +241,7 @@ async def send_signal(bot: Bot, signal: dict):
         f"⚡ Güç skoru: `{signal['score']}/100`\n\n"
         f"*Analiz sonuçları ({signal['passed']}/{signal['total']}):\n*"
         f"{cond_lines}\n"
+        f"💡 *TAVSİYE:* {tavsiye}\n\n"
         f"🛡 Stop-Loss: `{fmt_price(stop)}` (-%{config.STOP_LOSS_PCT})\n"
         f"🎯 Kar Al: `{fmt_price(tp)}` (+%{config.TAKE_PROFIT_PCT})\n"
         f"💵 İşlem: `${config.TRADE_AMOUNT_USDT} USDT`\n\n"
