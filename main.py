@@ -397,15 +397,18 @@ async def cmd_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("\n".join(lines), parse_mode="Markdown")
 
 async def cmd_balance(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    bal = get_real_balance()
-    profit_try = total_profit * 38.5
-    await update.message.reply_text(
-        f"💼 *Bakiye*\n\n"
-        f"USDT: `${bal:.2f}`\n"
-        f"TL: `₺{bal*38.5:.2f}`\n"
-        f"Toplam kâr/zarar: `{fmt_try(total_profit)}`",
-        parse_mode="Markdown"
-    )
+    try:
+        balances = binance.get_account()
+        lines = ["💼 *Bakiye*\n"]
+        for b in balances["balances"]:
+            free = float(b["free"])
+            if free > 0:
+                lines.append(f"`{b['asset']}`: {free}")
+        if len(lines) == 1:
+            lines.append("Hiç bakiye bulunamadı.")
+        await update.message.reply_text("\n".join(lines), parse_mode="Markdown")
+    except Exception as e:
+        await update.message.reply_text(f"Hata: {e}")
 
 async def cmd_scan_now(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("🔍 Tarama başlıyor...")
