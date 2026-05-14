@@ -36,7 +36,7 @@ last_signal_time = {}
 SIGNAL_COOLDOWN = 3600
 
 # Bakiye takibi
-current_balance_usdt = config.STARTING_BALANCE_USDT
+current_balance_usdt = 0.0
 total_profit = 0.0
 
 
