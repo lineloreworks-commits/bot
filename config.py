@@ -7,8 +7,8 @@ TELEGRAM_TOKEN  = "8668134981:AAFI6iZCi4rMSb8sqSKE2QGg7lIclgR_61w"   # @BotFathe
 TELEGRAM_CHAT_ID = "7638106132"         # Senin chat ID'n
 
 # Binance API (binance.com → API Management)
-BINANCE_API_KEY    = "BURAYA_API_KEY"
-BINANCE_API_SECRET = "BURAYA_API_SECRET"
+BINANCE_API_KEY    = "xGgMLBExH2sGJ4R9vJqRAloqHDN7zGmoplbtzn44qsfdCO8yccmjzaZtaDADrEh5"
+BINANCE_API_SECRET = "wfRY8WDuwefk36RWQovvwNECstw7VywWS18sZb883vWvMqG5IRwcC7L217W5Dbui"
 
 # ============================================================
 #  STRATEJİ AYARLARI
