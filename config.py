@@ -1,6 +1,4 @@
-# ============================================================
-#  KONFİGÜRASYON — Sadece bu dosyayı düzenlemen yeterli
-# ============================================================
+import os
 
 # Telegram
 TELEGRAM_TOKEN  = "8668134981:AAFI6iZCi4rMSb8sqSKE2QGg7lIclgR_61w"   # @BotFather'dan
@@ -10,36 +8,25 @@ TELEGRAM_CHAT_ID = "7638106132"         # Senin chat ID'n
 BINANCE_API_KEY    = "xGgMLBExH2sGJ4R9vJqRAloqHDN7zGmoplbtzn44qsfdCO8yccmjzaZtaDADrEh5"
 BINANCE_API_SECRET = "wfRY8WDuwefk36RWQovvwNECstw7VywWS18sZb883vWvMqG5IRwcC7L217W5Dbui"
 
-# ============================================================
-#  STRATEJİ AYARLARI
-# ============================================================
+# Başlangıç bakiyesi (USDT)
+STARTING_BALANCE_USDT = 13.0   # ~500 TL
 
-# Her işlemde kullanılacak maksimum USDT miktarı
-TRADE_AMOUNT_USDT = 20          # örn: 20 dolar per işlem
-
-# Stop-loss yüzdesi (eksi)
-STOP_LOSS_PCT = 3.0             # %3 düşünce otomatik sat
-
-# Kar al yüzdesi
-TAKE_PROFIT_PCT = 6.0           # %6 çıkınca otomatik sat
+# Stop-loss / kar al
+STOP_LOSS_PCT   = 3.0
+TAKE_PROFIT_PCT = 6.0
 
 # Tarama sıklığı (saniye)
-SCAN_INTERVAL = 300             # 5 dakikada bir tara
+SCAN_INTERVAL = 300  # 5 dakika
 
-# Sinyal için minimum hacim artışı
-MIN_VOLUME_SPIKE = 2.0          # Ortalamadan 2x fazla hacim
+# Minimum günlük hacim
+MIN_24H_VOLUME_USDT = 1_000_000
 
-# RSI alt eşiği (al sinyali için)
-RSI_BUY_THRESHOLD = 35          # RSI 35 altı = aşırı satım
+# RSI eşikleri
+RSI_BUY_THRESHOLD  = 38
+RSI_SELL_THRESHOLD = 70
 
-# RSI üst eşiği (sat uyarısı için)
-RSI_SELL_THRESHOLD = 70         # RSI 70 üstü = aşırı alım
+# Hacim spike çarpanı
+MIN_VOLUME_SPIKE = 2.0
 
-# Taranacak minimum hacim (düşük hacimli coinleri atla)
-MIN_24H_VOLUME_USDT = 1_000_000  # 1 milyon dolar günlük hacim
-
-# Onay timeout (saniye) — bu kadar içinde onaylanmazsa iptal
-APPROVAL_TIMEOUT = 120          # 2 dakika
-
-# Test modu (True = gerçek işlem yapmaz, sadece bildirim gönderir)
-TEST_MODE = True   # İLK BAŞTA TRUE BIRAK, test ettikten sonra False yap
+# Test modu — False = gerçek işlem
+TEST_MODE = False
