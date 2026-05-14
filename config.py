@@ -3,7 +3,7 @@
 # ============================================================
 
 # Telegram
-TELEGRAM_TOKEN  = "BURAYA_BOT_TOKEN"   # @BotFather'dan
+TELEGRAM_TOKEN  = "8668134981:AAFI6iZCi4rMSb8sqSKE2QGg7lIclgR_61w"   # @BotFather'dan
 TELEGRAM_CHAT_ID = "7638106132"         # Senin chat ID'n
 
 # Binance API (binance.com → API Management)
