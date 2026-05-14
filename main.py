@@ -133,12 +133,15 @@ def analyze_coin(symbol):
 # ============================================================
 
 def get_real_balance():
-    """Binance'den gerçek USDT bakiyesini al"""
+    """Binance'den gerçek USDT veya USD bakiyesini al"""
     try:
-        bal = binance.get_asset_balance(asset="USDT")
-        return float(bal["free"])
+        for asset in ["USDT", "USD", "USD1"]:
+            bal = binance.get_asset_balance(asset=asset)
+            if bal and float(bal["free"]) > 0:
+                return float(bal["free"])
+        return 0.0
     except:
-        return current_balance_usdt
+        return 0.0
 
 def calc_position_size(balance_usdt):
     """
