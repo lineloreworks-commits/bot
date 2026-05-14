@@ -8,9 +8,6 @@ TELEGRAM_CHAT_ID = "7638106132"         # Senin chat ID'n
 BINANCE_API_KEY    = "xGgMLBExH2sGJ4R9vJqRAloqHDN7zGmoplbtzn44qsfdCO8yccmjzaZtaDADrEh5"
 BINANCE_API_SECRET = "wfRY8WDuwefk36RWQovvwNECstw7VywWS18sZb883vWvMqG5IRwcC7L217W5Dbui"
 
-# Başlangıç bakiyesi (USDT)
-STARTING_BALANCE_USDT = 13.0   # ~500 TL
-
 # Stop-loss / kar al
 STOP_LOSS_PCT   = 3.0
 TAKE_PROFIT_PCT = 6.0
